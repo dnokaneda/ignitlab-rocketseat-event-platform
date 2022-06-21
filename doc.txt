@@ -1,0 +1,9 @@
+ COMANDOS:
+ 
+ - npm create vite@latest
+ - yarn add tailwindcss postcss autoprefixer -D
+ - npx tailwindcss init -p
+ - yarn add @apollo/client graphql
+
+
+https://api-sa-east-1.graphcms.com/v2/cl4o1poj505f401z2e9hxhemq/master
