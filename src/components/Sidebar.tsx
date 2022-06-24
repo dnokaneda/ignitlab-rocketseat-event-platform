@@ -1,12 +1,12 @@
 import { useQuery } from "@apollo/client";
 import Lesson from "./Lesson";
 import { GetLessonsResponse } from '../interfaces';
-import { GET_LESSONS_QUERY } from '../query';
+import { GET_LESSONS } from '../query';
 
 
 export function Sidebar() {
 
-  const { data } = useQuery<GetLessonsResponse>(GET_LESSONS_QUERY)
+  const { data } = useQuery<GetLessonsResponse>(GET_LESSONS)
 
   return (
     <aside className="w-[348px] bg-gray-700 p-6 border-l border-gray-600">
