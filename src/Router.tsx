@@ -4,7 +4,7 @@ import * as P from './pages'
 export function Router() {
   return (
     <Routes>
-      <Route path='/' element={<h1>Home</h1>} />
+      <Route path='/' element={<P.Subscribe />} />
       <Route path='/event' element={<P.Event />} />
       <Route path='/event/lesson/:slug' element={<P.Event />} />
     </Routes>

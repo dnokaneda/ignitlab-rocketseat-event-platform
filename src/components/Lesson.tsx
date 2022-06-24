@@ -1,10 +1,16 @@
 import { CheckCircle, Lock } from 'phosphor-react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { isPast, format } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
+import classnames from 'classnames'
+
 import { LessonProps } from '../interfaces'
 
 function Lesson(props: LessonProps) {
+  const { slug } = useParams<{ slug: string }>()
+  
+  const isActive: boolean = slug === props.slug;
+
   const isAvailable: boolean = isPast(props.availableAt);
   
   return (
@@ -12,9 +18,14 @@ function Lesson(props: LessonProps) {
       <span className="text-gray-300 group-hover:text-blue-500">
         { format(props.availableAt, "EEEE' . ' d' de 'MMMM' . 'k'h'mm", { locale: ptBR }) }
       </span>
-      
-      <div className="rounded border border-gray-500 p-4 mt-2 group-hover:border-green-500 group-hover:bg-gray-900">
-        
+            
+      <div className={classnames(
+        'rounded border border-gray-500 p-4 mt-2 group-hover:border-green-500', {
+        'bg-green-500': isActive,
+        'group-hover:bg-green-700': isActive,
+        'group-hover:bg-gray-900': !isActive,
+        }
+      )}>
         <header className="flex items-center justify-between">
           {
             isAvailable
